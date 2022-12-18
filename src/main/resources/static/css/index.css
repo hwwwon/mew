@@ -7,6 +7,7 @@
     font-size: 16px;
     color: #ffffff;
     width: 100vw;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 ul, ol {
@@ -34,6 +35,7 @@ a {
 .home-user-box > img{
     height: 7rem;
     width: 7rem;
+    opacity: 0.5;
 }
 
 .home-user-box > .user-service{
@@ -60,7 +62,7 @@ a {
 
 .search-box > img{
     width: 2rem;
-    filter: invert(50%);
+    filter: invert(40%);
     margin-left: 1em;
     cursor: pointer;
 }
@@ -75,7 +77,6 @@ a {
 
 .user-service > div > span{
     cursor: pointer;
-    font-size: 16px;
 }
 
 /* 메인페이지 영화 포스트 추천 슬라이드 */
@@ -110,7 +111,7 @@ a {
     position: absolute;
     width: 3rem;
     filter: invert(100%);
-    opacity: 0.5;
+    opacity: 0.3;
     cursor: pointer;
 }
 
