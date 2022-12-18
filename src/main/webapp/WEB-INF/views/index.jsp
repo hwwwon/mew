@@ -23,12 +23,25 @@
         </header>
         <section class="slide-container">
             <div class="slide-box">
-
+                <img src="/static/images/poster.jpg" alt="포스터" class="slide-img">
+                <img src="/static/images/poster.jpg" alt="포스터" class="slide-img">
+                <img src="/static/images/poster.jpg" alt="포스터" class="slide-img">
+                <img src="/static/images/poster.jpg" alt="포스터" class="slide-img">
+                <img src="/static/images/poster.jpg" alt="포스터" class="slide-img">
+                <img src="/static/images/poster2.jpg" alt="포스터" class="slide-img">
+                <img src="/static/images/poster2.jpg" alt="포스터" class="slide-img">
+                <img src="/static/images/poster.jpg" alt="포스터" class="slide-img">
+                <img src="/static/images/poster.jpg" alt="포스터" class="slide-img">
+                <img src="/static/images/poster.jpg" alt="포스터" class="slide-img">
             </div>
+            <img class="back" id="back" src="/static/images/back.png" alt="이전">
+            <img class="next" id="next" src="/static/images/next.png" alt="다음">
         </section>
         <footer>
 
         </footer>
     </section>
+
+    <script src="/static/js/index.js"></script>
 </body>
 </html>

@@ -6,6 +6,7 @@
     box-sizing: border-box;
     font-size: 16px;
     color: #ffffff;
+    width: 100vw;
 }
 
 ul, ol {
@@ -20,7 +21,7 @@ a {
 .wrap{
     height: 100vh;
     width: 100vw;
-    background: linear-gradient(black 90%, #555555);
+    background: #000000;
 }
 
 /* header */
@@ -31,30 +32,29 @@ a {
 }
 
 .home-user-box > img{
-    height: 8.5rem;
-    width: 8rem;
+    height: 7rem;
+    width: 7rem;
 }
 
 .home-user-box > .user-service{
     display: flex;
-    justify-content: flex-end;
-    width: 110rem;
+    width: 42rem;
 }
 
 .user-service > .search-box{
     display: flex;
     align-items: center;
-    width: 38rem;
+    width: 30rem;
 }
 
 .search-box > input{
-    width: 30rem;
-    height: 3.5rem;
+    width: 24rem;
+    height: 3.3rem;
     border-radius: 15px;
     border: none;
-    background-color: #2a2a2a;
+    background-color: #161616;
     padding-left: 2em;
-    font-size: 20px;
+    font-size: 18px;
     outline: none;
 }
 
@@ -75,7 +75,50 @@ a {
 
 .user-service > div > span{
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 /* 메인페이지 영화 포스트 추천 슬라이드 */
+.slide-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 70vh;
+    margin-top: 3em;
+}
+
+.slide-container .slide-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50vh;
+    width: 78%;
+    overflow: hidden;
+}
+
+.slide-container .slide-box > img{
+    margin-right: 2em;
+    width: 17rem;
+    height: 25rem;
+    cursor: pointer;
+    transition-property: transform;
+    transition-duration: 1s;
+}
+
+.slide-container .back, .next{
+    position: absolute;
+    width: 3rem;
+    filter: invert(100%);
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.slide-container .back{
+    display: none;
+    left: 10rem;
+}
+
+.slide-container .next{
+    right: 10rem;
+}
