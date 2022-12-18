@@ -1,11 +1,11 @@
 @charset "UTF-8";
-
+/* 초기 설정 */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-size: 16px;
-    color: #222222;
+    color: #ffffff;
 }
 
 ul, ol {
@@ -13,5 +13,69 @@ ul, ol {
 }
 
 a {
-    text-decoration: none
+    text-decoration: none;
 }
+
+/* 배경 */
+.wrap{
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(black 90%, #555555);
+}
+
+/* header */
+.home-user-box{
+    display: flex;
+    justify-content: space-between;
+    padding: 2em 9em;
+}
+
+.home-user-box > img{
+    height: 8.5rem;
+    width: 8rem;
+}
+
+.home-user-box > .user-service{
+    display: flex;
+    justify-content: flex-end;
+    width: 110rem;
+}
+
+.user-service > .search-box{
+    display: flex;
+    align-items: center;
+    width: 38rem;
+}
+
+.search-box > input{
+    width: 30rem;
+    height: 3.5rem;
+    border-radius: 15px;
+    border: none;
+    background-color: #2a2a2a;
+    padding-left: 2em;
+    font-size: 20px;
+    outline: none;
+}
+
+.search-box > img{
+    width: 2rem;
+    filter: invert(50%);
+    margin-left: 1em;
+    cursor: pointer;
+}
+
+.user-service .user-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 11rem;
+    height: 100%;
+}
+
+.user-service > div > span{
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* 메인페이지 영화 포스트 추천 슬라이드 */
