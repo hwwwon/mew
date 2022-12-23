@@ -25,7 +25,7 @@
             </div>
             <img class="back" id="back" src="/static/images/back.png" alt="이전">
             <img class="next" id="next" src="/static/images/next.png" alt="다음">
-        </section>>
+        </section>
 
     </section>
 

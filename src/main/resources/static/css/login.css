@@ -1,0 +1,71 @@
+.login-container form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    margin-top: 1em;
+    padding-bottom: 6em;
+}
+
+.login-container .login-title{
+    width: 23rem;
+    padding: 1em;
+    font-size: 1.5rem;
+    margin-top: 3em;
+}
+
+.login-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30rem;
+    height: 31rem;
+}
+
+.login-box > input, .login-box > button{
+    width: 20rem;
+    height: 3.5rem;
+    padding-left: 1.5em;
+    margin-top: 1em;
+    background-color: #404040;
+    border: none;
+    outline: none;
+}
+
+.login-box .login-btn{
+    cursor: pointer;
+    background-color: #7fe5ff;
+    color: #161616;
+    font-weight: 600;
+    padding: 0;
+}
+
+/* 회원가입 , 아이디 비번 찾기 */
+.login-box .login-sub{
+    width: 20rem;
+    margin: 1.5em 0;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* SNS 로그인 */
+.login-box .sns-login{
+    display: flex;
+    justify-content: center;
+    width: 20rem;
+    padding-top: 1em;
+    border-top: 1px solid #404040;
+}
+
+.login-box .sns-login img{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 2px;
+    cursor: pointer;
+    margin: 0 0.5em;
+}
+
+
+
+
+
