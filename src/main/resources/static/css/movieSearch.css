@@ -64,13 +64,28 @@
     border-radius: 8px;
     font-weight: 500;
     cursor: pointer;
-    margin: 2em 3em 0 0;
+    margin: 2em 1em 0 0;
     transition-duration: 1s;
+}
+
+.movie-info > button.pick-btn{
+    width: 5rem;
+}
+
+.movie-info > button.pick-btn > img.pick{
+    width: 1.5rem;
+    height: 1.5rem;
+    filter: invert(100%);
 }
 
 .movie-info > button:hover{
     background-color: #343434;
     transition-duration: 1s;
+}
+
+.movie-info > button.pick-btn img.yellow-star{
+    filter: invert(0%);
+    content:url("https://cdn-icons-png.flaticon.com/512/1828/1828884.png");
 }
 
 /* 탑버튼 */
