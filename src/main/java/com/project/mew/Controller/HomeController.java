@@ -11,5 +11,9 @@ public class HomeController {
         return "index";
     }
 
+    @GetMapping("/movieSearch")
+    public String movieSearchView() {
+        return "movieSearch";
+    }
 
 }

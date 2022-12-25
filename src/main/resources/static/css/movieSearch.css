@@ -1,0 +1,94 @@
+/* 영화 검색 결과 */
+.result-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3em;
+    padding-bottom: 5em;
+}
+
+.result-box{
+    display: flex;
+    justify-content: space-between;
+    width: 85rem;
+    padding: 2em 3em;
+}
+
+.result-box .movie-img{
+    display: flex;
+    justify-content: flex-end;
+    width: 25rem;
+}
+
+.result-box img{
+    width: 18rem;
+    height: 25rem;
+}
+
+.result-box .movie-info{
+    width: 45rem;
+    padding: 0.5em 1em;
+}
+
+.movie-info > .movie-title{
+    display: block;
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 1em;
+}
+
+.movie-info > .movie-year{
+    font-size: 18px;
+    margin-bottom: 1em;
+}
+
+.movie-info > .movie-genre{
+    margin-bottom: 1em;
+}
+
+.movie-info > .movie-summary > div{
+    width: 35rem;
+    margin-bottom: 0.5em;
+}
+
+.movie-info > .movie-summary > div:nth-child(2){
+    padding-left: 0.5em;
+}
+
+.movie-info > button{
+    float: right;
+    width: 7.3rem;
+    height: 3.2rem;
+    background-color: #161616;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 2em 3em 0 0;
+    transition-duration: 1s;
+}
+
+.movie-info > button:hover{
+    background-color: #343434;
+    transition-duration: 1s;
+}
+
+/* 탑버튼 */
+.wrap .top-btn{
+    display: none;
+    position: fixed;
+    bottom: 4rem;
+    right: 4rem;
+}
+
+.wrap .top-btn img{
+    width: 3rem;
+    height: 3rem;
+    filter: invert(85%);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.wrap .topOn{
+    display: block;
+}

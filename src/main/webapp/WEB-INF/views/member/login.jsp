@@ -23,11 +23,6 @@
                         <span>회원가입 |</span>
                         <span>아이디/비밀번호 찾기</span>
                     </div>
-                    <div class="sns-login">
-                        <img src="<c:url value='/static/images/google.jpg'/>" class="snsImg">
-                        <img src="<c:url value='/static/images/naver.png'/>" class="snsImg">
-                        <img src="<c:url value='/static/images/kakao.png'/>" class="snsImg">
-                    </div>
                 </div>
             </form>
         </section>

@@ -5,8 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-size: 1rem;
-    color: #ffffff;
-    width: 100vw;
+    color: #dedede;
     font-family: 'Nanum Gothic', sans-serif;
 }
 
@@ -18,11 +17,14 @@ a {
     text-decoration: none;
 }
 
+body{
+    overflow-x: hidden;
+    background-color: #000000;
+}
+
 /* 배경 */
 .wrap{
-    height: fit-content;
     width: 100vw;
-    background-color: #000000;
 }
 
 /* header */
@@ -65,18 +67,41 @@ a {
     filter: invert(40%);
     margin-left: 1em;
     cursor: pointer;
+    background-color: transparent;
 }
 
 .user-service .user-box{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 11rem;
     height: 100%;
 }
 
-.user-service > div > span{
+.user-service .user-box .user-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 9rem;
+    height: 4rem;
+    margin-top: 1em;
+}
+
+.user-wrap > span{
     cursor: pointer;
+}
+
+/* sns 로그인 */
+.sns-img{
+    display: flex;
+    align-items: center;
+    width: 10rem;
+}
+
+.sns-img img{
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-right: 1em;
 }
 
 /* 메인페이지 영화 포스트 추천 슬라이드 */
@@ -113,6 +138,7 @@ a {
     filter: invert(100%);
     opacity: 0.3;
     cursor: pointer;
+    background-color: transparent;
 }
 
 .slide-container .back{

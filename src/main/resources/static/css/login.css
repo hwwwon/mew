@@ -48,22 +48,6 @@
     cursor: pointer;
 }
 
-/* SNS 로그인 */
-.login-box .sns-login{
-    display: flex;
-    justify-content: center;
-    width: 20rem;
-    padding-top: 1em;
-    border-top: 1px solid #404040;
-}
-
-.login-box .sns-login img{
-    width: 2rem;
-    height: 2rem;
-    border-radius: 2px;
-    cursor: pointer;
-    margin: 0 0.5em;
-}
 
 
 

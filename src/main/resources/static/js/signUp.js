@@ -155,20 +155,6 @@ agreeModalClose.forEach(item => item.addEventListener('click', () => {
     privacy.classList.remove('show-modal');
 }));
 
-
-// sns 회원가입 약관동의 모달
-const SNSImges = document.querySelectorAll('.sns-img img');
-const SNSModal = document.querySelector('.sns-modal');
-const SNSClose = document.querySelector('.sns-modal-close');
-// sns 회원가입 약관동의 모달 열기
-SNSImges.forEach(item => item.addEventListener('click', () => {
-    SNSModal.classList.add('show-modal');
-}));
-// sns 회원가입 약관동의 모달 닫기
-SNSClose.addEventListener('click', () => {
-    SNSModal.classList.remove('show-modal');
-});
-
 // 모달창 외부 클릭시 모달창 닫기
 window.addEventListener('click', (e) => {
     if(!terms.contains(e.target) && e.target.id !== "termsAgree"){
@@ -176,9 +162,6 @@ window.addEventListener('click', (e) => {
     }
     if(!privacy.contains(e.target) && e.target.id !== "privacyAgree"){
         privacy.classList.remove('show-modal');
-    }
-    if(!SNSModal.contains(e.target) && e.target.className !== "snsImg"){
-        SNSModal.classList.remove('show-modal');
     }
 });
 
