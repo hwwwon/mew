@@ -1,0 +1,23 @@
+
+.mypage-wrap{
+    display: flex;
+    justify-content: center;
+}
+
+.mypage-wrap > .mypage-container{
+    width: 103rem;
+}
+
+.mypage-container > #calendar{
+    width: 60rem;
+    height: 40rem;
+}
+
+/* 토요일 */
+.fc-day.fc-day-sat .fc-daygrid-day-number{
+    color:#0000FF;
+}
+/* 일요일 */
+.fc-day.fc-day-sun .fc-daygrid-day-number{
+    color:#FF0000;
+}
