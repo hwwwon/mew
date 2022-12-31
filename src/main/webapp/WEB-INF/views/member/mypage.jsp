@@ -22,6 +22,29 @@
         <section class="mypage-wrap">
             <div class="mypage-container">
                 <div id='calendar'></div>
+                <nav class="my-nav-area">
+                    <div class="my-nav-container">
+                        <div class="my-nav-title">
+                            <p>My MEW</p>
+                            <button class="album-edit-btn">Edit</button>
+                        </div>
+                        <div class="all-btn">
+                            <p>All</p>
+                            <span>0</span>
+                        </div>
+                        <div class="basic-btn">
+                            <p>기본 앨범</p>
+                            <span>0</span>
+                        </div>
+                        <div class="add-album-btn">
+                            <button>+ 앨범 추가</button>
+                        </div>
+                        <div class="later-movie-btn">
+                            <p>나중에 볼 영화</p>
+                            <span>0</span>
+                        </div>
+                    </div>
+                </nav>
             </div>
         </section>
 

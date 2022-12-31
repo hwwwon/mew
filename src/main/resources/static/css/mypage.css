@@ -5,21 +5,22 @@
 }
 
 .mypage-wrap > .mypage-container{
+    display: flex;
+    justify-content: space-between;
     width: 103rem;
     height: fit-content;
 }
 
 /* FullCalendar */
-.mypage-container > #calendar{
+#calendar{
     width: 60rem;
-}
-
-#calendar  {
-    --fc-page-bg-color: transparent;
+    --fc-page-bg-color: #000000;
     --fc-today-bg-color: rgb(255 255 255 / 18%);
     --fc-neutral-bg-color: transparent;
+    --fc-border-color: #7f7f7f;
 }
 
+/* 요일, 일자 간격 조정 */
 thead > tr{
     height: 2.3rem;
 }
@@ -39,6 +40,61 @@ td.fc-day{
 /* 일요일 */
 .fc-day.fc-day-sun .fc-daygrid-day-number{
     color:#FF0000;
+}
+
+/* 마이페이지 마이 메뉴 */
+nav.my-nav-area{
+    display: flex;
+    justify-content: flex-end;
+    width: 35rem;
+    padding: 4em;
+}
+
+nav.my-nav-area > .my-nav-container{
+    position: fixed;
+    width: 20rem;
+}
+
+.my-nav-container > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background-color: rgb(132 129 129 / 10%);
+    padding: 0.8em 1em;
+    margin-bottom: 0.5em;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.my-nav-container > div.my-nav-title{
+    height: 3rem;
+    background-color: #161616;
+}
+
+.my-nav-container button.album-edit-btn{
+    position: relative;
+    width: 3rem;
+    height: 1.7rem;
+    background-color: transparent;
+    border: 2px solid #404040;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.my-nav-container span{
+    margin-right: 1em;
+}
+
+.my-nav-container div.add-album-btn button{
+    position: relative;
+    background-color: transparent;
+    z-index: 5;
+    cursor: pointer;
+    color: #7fe5ff;
+    border: none;
 }
 
 /* 탑버튼 */
