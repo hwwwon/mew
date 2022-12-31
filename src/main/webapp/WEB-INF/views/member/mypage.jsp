@@ -7,8 +7,11 @@
 <%--  CSS  --%>
 <link rel="stylesheet" type="text/css" href="<c:url value='/static/css/mypage.css'/>">
 <%-- fullcalendar --%>
-<script src='fullcalendar/dist/index.global.js'></script>
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.0.1/index.global.min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/moment@2.27.0/min/moment.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.0.2/index.global.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/moment@6.0.2/index.global.min.js'></script>
+<%--<script src='fullcalendar/dist/index.global.js'></script>--%>
+
 
 </head>
 <body>
@@ -21,6 +24,11 @@
                 <div id='calendar'></div>
             </div>
         </section>
+
+        <%--  탑버튼  --%>
+        <div class="top-btn">
+            <img src="/static/images/up-arrow.png">
+        </div>
 
     </section>
 

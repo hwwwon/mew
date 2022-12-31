@@ -1,16 +1,35 @@
-
 .mypage-wrap{
     display: flex;
     justify-content: center;
+    margin-bottom: 8rem;
 }
 
 .mypage-wrap > .mypage-container{
     width: 103rem;
+    height: fit-content;
 }
 
+/* FullCalendar */
 .mypage-container > #calendar{
     width: 60rem;
-    height: 40rem;
+}
+
+#calendar  {
+    --fc-page-bg-color: transparent;
+    --fc-today-bg-color: rgb(255 255 255 / 18%);
+    --fc-neutral-bg-color: transparent;
+}
+
+thead > tr{
+    height: 2.3rem;
+}
+
+.fc-col-header-cell.fc-day a{
+    line-height: 2.3rem;
+}
+
+td.fc-day{
+    height: 10rem;
 }
 
 /* 토요일 */
@@ -20,4 +39,24 @@
 /* 일요일 */
 .fc-day.fc-day-sun .fc-daygrid-day-number{
     color:#FF0000;
+}
+
+/* 탑버튼 */
+.wrap .top-btn{
+    display: none;
+    position: fixed;
+    bottom: 4rem;
+    right: 4rem;
+}
+
+.wrap .top-btn img{
+    width: 3rem;
+    height: 3rem;
+    filter: invert(85%);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.wrap .topOn{
+    display: block;
 }
