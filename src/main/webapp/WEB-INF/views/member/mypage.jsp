@@ -21,7 +21,7 @@
 
         <section class="mypage-wrap">
             <div class="mypage-container">
-                <div id='calendar'></div>
+                <div class="calendar-area on" id='calendar'></div>
                 <div class="album-area">
                     <div class="album-filter">
                         <button>최신순</button>
@@ -53,27 +53,43 @@
                 </div>
                 <nav class="my-nav-area">
                     <div class="my-nav-container">
-                        <div class="nav-btn my-nav-title">
+                        <div class="nav-btn calender-area my-nav-title now-btn">
                             <p>My MEW</p>
                             <button class="album-edit-btn">Edit</button>
                         </div>
-                        <div class="nav-btn all-btn">
+                        <div class="nav-btn album-area later-movie-btn">
+                            <p>나중에 볼 영화</p>
+                            <span>0</span>
+                        </div>
+                        <div class="nav-btn album-area all-btn">
                             <p>All</p>
                             <span>0</span>
                         </div>
-                        <div class="nav-btn basic-btn">
+                        <div class="nav-btn album-area basic-btn">
                             <p>기본 앨범</p>
                             <span>0</span>
+                            <div class="edit-area">
+                                <button>수정</button>
+                                <button>삭제</button>
+                            </div>
                         </div>
                         <div class="add-album-btn">
                             <button>+ 앨범 추가</button>
                         </div>
-                        <div class="nav-btn later-movie-btn">
-                            <p>나중에 볼 영화</p>
-                            <span>0</span>
-                        </div>
                     </div>
                 </nav>
+                <%-- 앨범 추가 팝업창  --%>
+                <div class="add-album-area">
+                    <div class="add-box">
+                        <h4>앨범 추가</h4>
+                        <p>앨범 제목을 입력해주세요.</p>
+                        <input type="text">
+                        <div>
+                            <button class="add-cancel">취소</button>
+                            <button class="add-album">추가</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 

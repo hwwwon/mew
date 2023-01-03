@@ -13,6 +13,7 @@
 
 /* FullCalendar */
 #calendar{
+    display: none;
     margin-top: 4em;
     width: 60rem;
     --fc-page-bg-color: #000000;
@@ -60,20 +61,21 @@ td.fc-day{
 
 .album-filter > button{
     width: 4.5rem;
-    height: 2rem;
+    height: 2.3rem;
     margin-left: 0.5em;
     background-color: transparent;
     border: 2px solid #404040;
     border-radius: 5px;
     font-size: 0.8rem;
     cursor: pointer;
+    transition-duration: 0.5s;
 }
 
 .album-filter > button.genre{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 6rem;
+    width: 6.2rem;
 }
 
 .album-filter > button.genre > p{
@@ -81,10 +83,12 @@ td.fc-day{
 }
 
 .album-filter > ul.genre-option{
+    display: none;
     position: absolute;
     top: 2.6rem;
-    width: 6rem;
-    background-color: #161616;
+    width: 6.2rem;
+    background-color: #000000;
+    border: 2px solid #404040;
     border-radius: 5px;
 }
 
@@ -99,8 +103,9 @@ td.fc-day{
     line-height: 2.5rem;
 }
 
-.album-filter > ul.genre-option > li > p:hover{
+.album-filter > button:hover, .album-filter > ul.genre-option > li > p:hover{
     color: #7fe5ff;
+    transition-duration: 0.5s;
 }
 
 .album-area > .album-container{
@@ -112,6 +117,7 @@ td.fc-day{
 .album-area > .album-container > img{
     width: 10rem;
     margin: 2em 2em 0 1em;
+    cursor: pointer;
 }
 
 /* 마이페이지 마이 메뉴 */
@@ -131,20 +137,15 @@ nav.my-nav-area > .my-nav-container{
     justify-content: space-between;
     align-items: center;
     position: relative;
+    z-index: 3;
+    height: 3rem;
     background-color: rgb(132 129 129 / 10%);
     padding: 0.8em 1em;
     margin-bottom: 0.5em;
     cursor: pointer;
-    z-index: 2;
-}
-
-.my-nav-container > div.my-nav-title{
-    height: 3rem;
-    background-color: #161616;
 }
 
 .my-nav-container button.album-edit-btn{
-    position: relative;
     width: 3rem;
     height: 1.7rem;
     background-color: transparent;
@@ -152,7 +153,6 @@ nav.my-nav-area > .my-nav-container{
     border-radius: 5px;
     font-size: 0.8rem;
     cursor: pointer;
-    z-index: 5;
 }
 
 .my-nav-container span{
@@ -160,12 +160,112 @@ nav.my-nav-area > .my-nav-container{
 }
 
 .my-nav-container div.add-album-btn button{
-    position: relative;
     background-color: transparent;
-    z-index: 5;
     cursor: pointer;
     color: #7fe5ff;
     border: none;
+}
+
+/* 마이메뉴 현재 선택된 메뉴 */
+.my-nav-container > div.now-btn{
+    background-color: #161616;
+}
+
+/* 선택된 메뉴에 해당하는 컨텐츠 */
+.mypage-container > div.on{
+    display: block !important;
+}
+
+/* 앨범 추가 팝업창 */
+.add-album-area{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 50%);
+    position: fixed;
+    z-index: 100;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+}
+
+.add-album-area > div.add-box{
+    position: relative;
+    z-index: 120;
+    width: 30rem;
+    height: 20rem;
+    background-color: #212121;
+    border-radius: 10px;
+    padding: 4em 3em;
+}
+
+.add-box > h4{
+    font-size: 1.3rem;
+    color: #7fe5ff;
+    margin-bottom: 1.2em;
+}
+
+.add-box > p{
+    margin-bottom: 1em;
+}
+
+.add-box > input{
+    width: 24rem;
+    height: 3rem;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #7f7f7f;
+    padding: 0.8em;
+    margin-bottom: 1.5em;
+}
+
+.add-box > div{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add-box > div > button{
+    width: 3rem;
+    height: 2rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    margin-left: 1em;
+}
+
+.add-box > div > button:hover{
+    color: #7fe5ff;
+    transition-duration: 0.5s;
+}
+
+/* edit : 추가한 앨범 수정 및 삭제 */
+.edit-area{
+    display: none;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    top: 0;
+    width: 8rem;
+    height: 3rem;
+}
+
+.edit-area > button{
+    background-color: #151515;
+    height: 1.7rem;
+    width: 3rem;
+    border: 2px solid #404040;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.edit-toggle{
+    display: flex;
 }
 
 /* 탑버튼 */

@@ -1,5 +1,5 @@
 // 탑버튼
-const topBtn = document.querySelector('.top-btn');
+let topBtn = document.querySelector('.top-btn');
 
 window.addEventListener('scroll', function(){
     if(this.scrollY > 200){
