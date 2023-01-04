@@ -36,7 +36,7 @@ pwCheckEyes.addEventListener("click",() => {
 // 약관동의
 const signUpForm = document.querySelector('#signUpForm');
 const agreeAll = document.querySelector('.all-agree input');
-const agreeBoxs = document.querySelectorAll('.agree-box input');
+const agreeBoxes = document.querySelectorAll('.agree-box input');
 // const submitBtn = document.querySelector('.submit-btn');
 // 약관 모달창
 const agreeDetail = document.querySelectorAll('.agree-box i');
@@ -54,7 +54,7 @@ const agreements = {
 signUpForm.addEventListener("submit", (e) => e.preventDefault());
 
 // 동의 하나씩 눌렀을 때 다 선택하면 전체에 체크되고, 하나를 체크취소하면 전체 체크취소
-agreeBoxs.forEach(item => item.addEventListener('input', toggleCheckbox));
+agreeBoxes.forEach(item => item.addEventListener('input', toggleCheckbox));
 function toggleCheckbox(e){
     const { checked, id } = e.target;
     agreements[id] = checked;
@@ -96,23 +96,23 @@ function modalAgreeCheck(){
     const { termsOfService, privacyPolicy } = agreements;
     if( termsOfService && privacyPolicy ){
         agreeAll.checked = true;
-        agreeBoxs.forEach(item => {
+        agreeBoxes.forEach(item => {
             item.checked = true;
         });
     }else{
         agreeAll.checked = false;
     }
     if(termsOfService){
-        agreeBoxs[0].checked = true;
+        agreeBoxes[0].checked = true;
         terms.classList.remove('show-modal');
     }else if(!termsOfService){
-        agreeBoxs[0].checked = false;
+        agreeBoxes[0].checked = false;
     }
     if(privacyPolicy){
-        agreeBoxs[1].checked = true;
+        agreeBoxes[1].checked = true;
         privacy.classList.remove('show-modal');
     }else if(!privacyPolicy){
-        agreeBoxs[1].checked = false;
+        agreeBoxes[1].checked = false;
     }
 }
 
@@ -120,7 +120,7 @@ function modalAgreeCheck(){
 agreeAll.addEventListener("click", e => {
     const { checked } = e.target;
     if(checked){
-        agreeBoxs.forEach(item => {
+        agreeBoxes.forEach(item => {
             item.checked = true;
             agreements[item.id] = true;
         });
@@ -128,7 +128,7 @@ agreeAll.addEventListener("click", e => {
             item.checked = true;
         });
     }else{
-        agreeBoxs.forEach(item => {
+        agreeBoxes.forEach(item => {
             item.checked = false;
             agreements[item.id] = false;
         });
