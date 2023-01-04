@@ -49,61 +49,146 @@ document.addEventListener('DOMContentLoaded', function() {
         }));
     });
 
-    // 앨범 추가 열기
+    // 앨범 추가 팝업창 열기
     const addAlbumArea = document.querySelector('.add-album-area');
-    document.querySelector(' .add-album-btn').addEventListener('click', () => {
+    const addAlbumBtn = document.querySelector('.add-album-btn');
+    addAlbumBtn.addEventListener('click', () => {
         addAlbumArea.style.display = 'flex';
     });
 
-    // 앨범 추가 닫기
+    // 앨범 추가 팝업창 닫기
     document.querySelector('.add-cancel').addEventListener('click', () => {
         addAlbumArea.style.display = 'none';
     });
 
-    // 앨범 추가
+    // 앨범 추가 완료
     document.querySelector('.add-album').addEventListener('click', () => {
-        let newDiv = `<div class="nav-btn album-area">
+        let newDiv = `<div class="nav-btn album-area custom-btn">
                             <p>추가된 앨범</p>
                             <span>0</span>
                             <div class="edit-area">
-                                <button>수정</button>
-                                <button>삭제</button>
+                                <button class="edit-modify-btn">수정</button>
+                                <button class="edit-delete-btn">삭제</button>
                             </div>
                         </div>`;
         addArea.insertAdjacentHTML('beforeend', newDiv);
         addAlbumArea.style.display = 'none';
     });
 
-    // 앨범 삭제(Edit)
+    // 앨범 Edit 토글
     const albumEdit = document.querySelector('.album-edit-btn');
-    const editArea = document.querySelector('.edit-area');
-    console.log(addArea.children);
-    albumEdit.addEventListener('click', () => {
-        editArea.classList.toggle('edit-toggle');
-    });
-    // 앨범 수정(Edit)
-
-});
-
-// 필터
-// 최신순 오래된순
-
-// 장르
-
-// 탑버튼
-let topBtn = document.querySelector('.top-btn');
-
-window.addEventListener('scroll', function(){
-    if(this.scrollY > 200){
-        topBtn.classList.add('topOn');
-    }else{
-        topBtn.classList.remove('topOn');
+    const modifyAlbumBtn = document.querySelector('.modify-album-area'); // 앨범 수정 모달창
+    function editOff(){
+        if(addArea.querySelector('.custom-btn') === null){ // 추가한 앨범을 모두 삭제했을 때 자동으로 edit 종료
+            addAlbumBtn.style.pointerEvents="auto";
+            addAlbumBtn.style.textDecoration="none";
+            albumEdit.innerText = "Edit";
+            albumEdit.style.color="#dedede";
+            albumEdit.style.borderColor="#404040";
+        }
     }
-})
+    // Edit 버튼 클릭 했을 때
+    albumEdit.addEventListener('click', event => {
+        addArea.querySelectorAll('.edit-area').forEach(item => {
+            item.classList.toggle('edit-toggle');
 
-topBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({top : 0, behavior : "smooth"});
+            if(item.classList.contains('edit-toggle')){
+                addAlbumBtn.style.pointerEvents="none";
+                addAlbumBtn.style.textDecoration="line-through";
+                albumEdit.innerText = "Done";
+                albumEdit.style.color="#7fe5ff";
+                albumEdit.style.borderColor="#7fe5ff";
+                // 앨범 삭제(Edit)
+                item.children[1].addEventListener('click', e => {
+                    e.stopImmediatePropagation();
+                    if(confirm(`추가된 앨범을 정말 삭제하시겠습니까?`)){
+                        e.currentTarget.closest('.custom-btn').remove();
+                        editOff();
+                        // 페이지 넘겨주기(My Mew)
+                        addArea.querySelector('.nav-btn.calender-area.my-nav-title').classList.add("now-btn");
+                        calendarArea.classList.add('on');
+                    }
+                    else return false;
+                });
+                // 앨범 수정 팝업창 열기(Edit)
+                item.children[0].addEventListener('click', e => {
+                    e.stopImmediatePropagation();
+                    modifyAlbumBtn.style.display="flex";
+                });
+            }else{
+                addAlbumBtn.style.pointerEvents="auto";
+                addAlbumBtn.style.textDecoration="none";
+                albumEdit.innerText = "Edit";
+                albumEdit.style.color="#dedede";
+                albumEdit.style.borderColor="#404040";
+            }
+
+        });
+
+    });
+
+    // 앨범 수정 팝업창 닫기(Edit)
+    document.querySelector('.modify-cancel').addEventListener('click', () => {
+        modifyAlbumBtn.style.display="none";
+    });
+
+    // 앨범 수정 완료(아직)
+
+    // 필터
+    // 최신순 오래된순
+    const latestBtn = document.getElementById('latestBtn');
+    const oldestBtn = document.getElementById('oldestBtn');
+
+    oldestBtn.addEventListener('click',e => {
+        e.target.style.color="#7fe5ff";
+        e.target.style.borderColor="#7fe5ff";
+        latestBtn.style.color="#dedede";
+        latestBtn.style.borderColor="#404040";
+    });
+    latestBtn.addEventListener('click',e => {
+        e.target.style.color="#7fe5ff";
+        e.target.style.borderColor="#7fe5ff";
+        oldestBtn.style.color="#dedede";
+        oldestBtn.style.borderColor="#404040";
+    });
+
+    // 장르 필터
+    const filterGenre = document.querySelector('.genre');
+    const genreOption = document.querySelector('.genre-option');
+    const genreList = document.querySelectorAll('.genre-option li');
+    // 장르 필터 리스트 토글
+    filterGenre.addEventListener('click', e => {
+        genreOption.classList.toggle('genre-toggle');
+    });
+    // 장르 선택하면 선택한 장르 반영
+    genreList.forEach(item => item.addEventListener('click', e => {
+        genreOption.classList.remove('genre-toggle');
+        filterGenre.children[0].innerText = e.target.innerText;
+        filterGenre.children[0].style.color="#7fe5ff";
+    }));
+    // 장르 외부 클릭 시 창 닫기
+    window.addEventListener('click', e => {
+        if(!genreOption.contains(e.target) && e.target.className !== 'genre'){
+            genreOption.classList.remove('genre-toggle');
+        }
+    });
+
+    // 탑버튼
+    let topBtn = document.querySelector('.top-btn');
+
+    window.addEventListener('scroll', function(){
+        if(this.scrollY > 200){
+            topBtn.classList.add('topOn');
+        }else{
+            topBtn.classList.remove('topOn');
+        }
+    })
+
+    topBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({top : 0, behavior : "smooth"});
+    });
+
 });
 
 

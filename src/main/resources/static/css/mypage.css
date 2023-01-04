@@ -71,6 +71,11 @@ td.fc-day{
     transition-duration: 0.5s;
 }
 
+.album-filter > button:first-child{
+    color: #7fe5ff;
+    border-color: #7fe5ff;
+}
+
 .album-filter > button.genre{
     display: flex;
     justify-content: space-evenly;
@@ -106,6 +111,10 @@ td.fc-day{
 .album-filter > button:hover, .album-filter > ul.genre-option > li > p:hover{
     color: #7fe5ff;
     transition-duration: 0.5s;
+}
+
+.album-filter > ul.genre-toggle{
+    display: block;
 }
 
 .album-area > .album-container{
@@ -177,7 +186,7 @@ nav.my-nav-area > .my-nav-container{
 }
 
 /* 앨범 추가 팝업창 */
-.add-album-area{
+.add-album-area, .modify-album-area{
     display: none;
     justify-content: center;
     align-items: center;
@@ -190,7 +199,7 @@ nav.my-nav-area > .my-nav-container{
     bottom: 0;
 }
 
-.add-album-area > div.add-box{
+.add-album-area > div.add-box, .modify-album-area > div.modify-box{
     position: relative;
     z-index: 120;
     width: 30rem;
@@ -200,17 +209,17 @@ nav.my-nav-area > .my-nav-container{
     padding: 4em 3em;
 }
 
-.add-box > h4{
+.add-box > h4, .modify-box > h4{
     font-size: 1.3rem;
     color: #7fe5ff;
     margin-bottom: 1.2em;
 }
 
-.add-box > p{
+.add-box > p, .modify-box > p{
     margin-bottom: 1em;
 }
 
-.add-box > input{
+.add-box > input, .modify-box > input{
     width: 24rem;
     height: 3rem;
     background-color: transparent;
@@ -221,12 +230,12 @@ nav.my-nav-area > .my-nav-container{
     margin-bottom: 1.5em;
 }
 
-.add-box > div{
+.add-box > div, .modify-box > div{
     display: flex;
     justify-content: flex-end;
 }
 
-.add-box > div > button{
+.add-box > div > button, .modify-box > div > button{
     width: 3rem;
     height: 2rem;
     background-color: transparent;
@@ -236,7 +245,7 @@ nav.my-nav-area > .my-nav-container{
     margin-left: 1em;
 }
 
-.add-box > div > button:hover{
+.add-box > div > button:hover, .modify-box > div > button:hover{
     color: #7fe5ff;
     transition-duration: 0.5s;
 }

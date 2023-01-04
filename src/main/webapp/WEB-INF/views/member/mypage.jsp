@@ -24,13 +24,14 @@
                 <div class="calendar-area on" id='calendar'></div>
                 <div class="album-area">
                     <div class="album-filter">
-                        <button>최신순</button>
-                        <button>오래된순</button>
+                        <button id="latestBtn">최신순</button>
+                        <button id="oldestBtn">오래된순</button>
                         <button class="genre">
                             <p>장르</p>
                             <i class="fas fa-caret-down"></i>
                         </button>
                         <ul class="genre-option">
+                            <li><p>전체</p></li>
                             <li><p>SF</p></li>
                             <li><p>모험</p></li>
                             <li><p>액션</p></li>
@@ -68,10 +69,6 @@
                         <div class="nav-btn album-area basic-btn">
                             <p>기본 앨범</p>
                             <span>0</span>
-                            <div class="edit-area">
-                                <button>수정</button>
-                                <button>삭제</button>
-                            </div>
                         </div>
                         <div class="add-album-btn">
                             <button>+ 앨범 추가</button>
@@ -82,11 +79,23 @@
                 <div class="add-album-area">
                     <div class="add-box">
                         <h4>앨범 추가</h4>
-                        <p>앨범 제목을 입력해주세요.</p>
+                        <p>앨범 이름을 입력해주세요.</p>
                         <input type="text">
                         <div>
                             <button class="add-cancel">취소</button>
                             <button class="add-album">추가</button>
+                        </div>
+                    </div>
+                </div>
+                <%-- 앨범 수정 팝업창  --%>
+                <div class="modify-album-area">
+                    <div class="modify-box">
+                        <h4>앨범 이름 수정</h4>
+                        <p>수정할 앨범 이름을 입력해주세요.</p>
+                        <input type="text">
+                        <div>
+                            <button class="modify-cancel">취소</button>
+                            <button class="modify-album">수정</button>
                         </div>
                     </div>
                 </div>
