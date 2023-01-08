@@ -6,6 +6,7 @@
 <c:import url="/WEB-INF/views/layout/head.jsp" />
 <%--  CSS  --%>
 <link rel="stylesheet" type="text/css" href="<c:url value='/static/css/mypage.css'/>">
+<link rel="stylesheet" type="text/css" href="<c:url value='/static/css/movieSearch.css'/>">
 <%-- fullcalendar --%>
 <script src='https://cdn.jsdelivr.net/npm/moment@2.27.0/min/moment.min.js'></script>
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.0.2/index.global.min.js'></script>
@@ -23,33 +24,61 @@
             <div class="mypage-container">
                 <div class="calendar-area on" id='calendar'></div>
                 <div class="album-area">
+                    <div class="album-title">기본 앨범</div>
                     <div class="album-filter">
-                        <button id="latestBtn">최신순</button>
-                        <button id="oldestBtn">오래된순</button>
-                        <button class="genre">
-                            <p>장르</p>
-                            <i class="fas fa-caret-down"></i>
-                        </button>
-                        <ul class="genre-option">
-                            <li><p>전체</p></li>
-                            <li><p>SF</p></li>
-                            <li><p>모험</p></li>
-                            <li><p>액션</p></li>
-                            <li><p>범죄</p></li>
-                            <li><p>로맨스</p></li>
-                            <li><p>애니메이션</p></li>
-                            <li><p>코미디</p></li>
-                            <li><p>판타지</p></li>
-                            <li><p>가족</p></li>
-                        </ul>
+                        <div class="poster-edit">
+                            포스터 삭제
+                        </div>
+                        <div class="poster-edit-box">
+                            <div class="poster-all-btn">전체 선택</div>
+                            <div class="poster-remove-btn">삭제</div>
+                        </div>
+                        <div class="filter-zone">
+                            <button id="latestBtn">최신순</button>
+                            <button id="oldestBtn">오래된순</button>
+                            <button class="genre">
+                                <p>장르</p>
+                                <i class="fas fa-caret-down"></i>
+                            </button>
+                            <ul class="genre-option">
+                                <li><p>전체</p></li>
+                                <li><p>SF</p></li>
+                                <li><p>모험</p></li>
+                                <li><p>액션</p></li>
+                                <li><p>범죄</p></li>
+                                <li><p>로맨스</p></li>
+                                <li><p>애니메이션</p></li>
+                                <li><p>코미디</p></li>
+                                <li><p>판타지</p></li>
+                                <li><p>가족</p></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="album-container">
-                        <img src="/static/images/poster.jpg">
-                        <img src="/static/images/poster2.jpg">
-                        <img src="/static/images/poster.jpg">
-                        <img src="/static/images/poster2.jpg">
-                        <img src="/static/images/poster.jpg">
-                        <img src="/static/images/poster2.jpg">
+                        <div class="poster-box">
+                            <img src="/static/images/poster.jpg">
+                            <div class="poster-cover"></div>
+                        </div>
+                        <div class="poster-box">
+                            <img src="/static/images/poster2.jpg">
+                            <div class="poster-cover"></div>
+                        </div>
+                        <div class="poster-box">
+                            <img src="/static/images/poster.jpg">
+                            <div class="poster-cover"></div>
+                        </div>
+                        <div class="poster-box">
+                            <img src="/static/images/poster2.jpg">
+                            <div class="poster-cover"></div>
+                        </div>
+                        <div class="poster-box">
+                            <img src="/static/images/poster.jpg">
+                            <div class="poster-cover"></div>
+                        </div>
+                        <div class="poster-box">
+                            <img src="/static/images/poster2.jpg">
+                            <div class="poster-cover"></div>
+                        </div>
                     </div>
                 </div>
                 <nav class="my-nav-area">
@@ -95,7 +124,51 @@
                         <input type="text">
                         <div>
                             <button class="modify-cancel">취소</button>
-                            <button class="modify-album">수정</button>
+                            <button class="modify-album">저장</button>
+                        </div>
+                    </div>
+                </div>
+                <%--  기록 확인 및 수정 팝업창  --%>
+                <div class="modify-record-area">
+                    <div class="record-box">
+                        <div class="img-box">
+                            <div class="bg-crop">
+                                <img src="/static/images/poster.jpg" class="bg-poster-img">
+                            </div>
+                            <img src="/static/images/poster.jpg" class="poster-img">
+                            <div class="movie-simple-info">
+                                <p>라라랜드</p>
+                                <p>2016</p>
+                            </div>
+                        </div>
+                        <div class="watch-info-box">
+                            <div class="watch-info">
+                                <img src="/static/images/when.png">
+                                <input type="text" placeholder="관람일">
+                            </div>
+                            <div class="watch-info">
+                                <img src="/static/images/where.png">
+                                <input type="text" placeholder="관람 장소">
+                            </div>
+                            <div class="watch-info">
+                                <img src="/static/images/who.png">
+                                <input type="text" placeholder="누구랑">
+                            </div>
+                            <div class="watch-info">
+                                <img src="/static/images/rating.png">
+                                <input type="text" placeholder="평점">
+                            </div>
+                            <div class="watch-info">
+                                <img src="/static/images/folder.png">
+                                <input type="text" placeholder="앨범선택">
+                            </div>
+                        </div>
+                        <div class="review-write-box">
+                            <textarea placeholder="영화 리뷰를 작성해 보세요." spellcheck="false"></textarea>
+                        </div>
+                        <div class="modify-record-btn-box">
+                            <button class="modify-btn-close">닫기</button>
+                            <button class="modify-btn-submit">저장</button>
                         </div>
                     </div>
                 </div>

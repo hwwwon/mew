@@ -14,7 +14,7 @@
 /* FullCalendar */
 #calendar{
     display: none;
-    margin-top: 4em;
+    margin-top: 2em;
     width: 60rem;
     --fc-page-bg-color: #000000;
     --fc-today-bg-color: rgb(255 255 255 / 18%);
@@ -49,71 +49,118 @@ td.fc-day{
     display: none;
 }
 
-.album-area > .album-filter{
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-    width: 63rem;
-    height: 3rem;
-    margin-top: 4em;
+.album-area > .album-title{
+    font-size: 1.75rem;
+    font-weight: 600;
     padding-left: 1em;
+    margin-top: 1em;
 }
 
-.album-filter > button{
+.album-area > .album-filter{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 64rem;
+    height: 4rem;
+    margin-top: 3em;
+    padding-left: 1.7em;
+    border-top: 2px solid #404040;
+    padding-top: 1em;
+}
+
+.album-filter > div.poster-edit{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.album-filter > div.poster-edit:hover{
+    color: #7fe5ff;
+    transition-duration: 0.5s;
+}
+
+.edit-style{
+    color: #7fe5ff;
+}
+
+.album-filter > .poster-edit-box{
+    display: none;
+    justify-content: space-around;
+    position: absolute;
+    left: 7rem;
+    width: 10rem;
+    height: 3rem;
+}
+
+.album-filter > .poster-edit-box > div.poster-remove-btn, .album-filter > .poster-edit-box > div.poster-all-btn{
+    line-height: 3rem;
+    cursor: pointer;
+}
+
+.album-filter > div.filter-zone{
+    display: flex;
+    align-items: center;
+    margin-right: 1em;
+}
+
+.album-filter > div.filter-zone > button{
     width: 4.5rem;
     height: 2.3rem;
-    margin-left: 0.5em;
+    margin-left: 1em;
     background-color: transparent;
-    border: 2px solid #404040;
+    border: 1px solid #404040;
     border-radius: 5px;
     font-size: 0.8rem;
     cursor: pointer;
     transition-duration: 0.5s;
 }
 
-.album-filter > button:first-child{
+.album-filter > div.filter-zone > button:first-child{
     color: #7fe5ff;
     border-color: #7fe5ff;
 }
 
-.album-filter > button.genre{
+.album-filter > div.filter-zone > button.genre{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     width: 6.2rem;
 }
 
-.album-filter > button.genre > p{
+.album-filter > div.filter-zone > button.genre > p{
     font-size: 0.8rem;
 }
 
-.album-filter > ul.genre-option{
+.album-filter > div.filter-zone > ul.genre-option{
     display: none;
     position: absolute;
-    top: 2.6rem;
+    top: 3.7rem;
+    right: 1rem;
     width: 6.2rem;
     background-color: #000000;
-    border: 2px solid #404040;
+    border: 1px solid #404040;
     border-radius: 5px;
+    z-index: 10;
 }
 
-.album-filter > ul.genre-option > li{
+.album-filter > div.filter-zone > ul.genre-option > li{
     height: 3rem;
     padding: 0.3em 1em;
     cursor: pointer;
 }
 
-.album-filter > ul.genre-option > li > p{
+.album-filter > div.filter-zone > ul.genre-option > li > p{
     font-size: 0.8rem;
     line-height: 2.5rem;
 }
 
-.album-filter > button:hover, .album-filter > ul.genre-option > li > p:hover{
+.album-filter > div.filter-zone > ul.genre-option > li > p:hover{
     color: #7fe5ff;
     transition-duration: 0.5s;
 }
 
-.album-filter > ul.genre-toggle{
+.album-filter > div.filter-zone > ul.genre-toggle{
     display: block;
 }
 
@@ -123,9 +170,27 @@ td.fc-day{
     width: 70rem;
 }
 
-.album-area > .album-container > img{
+.album-area > .album-container  img{
     width: 10rem;
+    height: 14.5rem;
     margin: 2em 2em 0 1em;
+    cursor: pointer;
+}
+
+/* 포스터 삭제를 위해 추가한 부분 */
+.album-container > div.poster-box{
+    position: relative;
+}
+
+.album-area > .album-container div.poster-cover{
+    display: none;
+    position: absolute;
+    top: 2rem;
+    left: 1rem;
+    width: 10rem;
+    height: 14.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition-duration: 0.5s;
     cursor: pointer;
 }
 
@@ -134,7 +199,7 @@ nav.my-nav-area{
     display: flex;
     justify-content: flex-end;
     width: 35rem;
-    padding: 4em;
+    margin: 6em 2em 6em 6em;
 }
 
 nav.my-nav-area > .my-nav-container{
@@ -274,7 +339,7 @@ nav.my-nav-area > .my-nav-container{
 }
 
 .edit-toggle{
-    display: flex;
+    display: flex !important;
 }
 
 /* 탑버튼 */

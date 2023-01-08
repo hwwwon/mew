@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     // Edit 버튼 클릭 했을 때
+    const navBtn = document.querySelector('.nav-btn');
     albumEdit.addEventListener('click', event => {
         addArea.querySelectorAll('.edit-area').forEach(item => {
             item.classList.toggle('edit-toggle');
@@ -101,10 +102,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 // 앨범 삭제(Edit)
                 item.children[1].addEventListener('click', e => {
                     e.stopImmediatePropagation();
-                    if(confirm(`추가된 앨범을 정말 삭제하시겠습니까?`)){
+                    if(confirm(`추가된 앨범을 삭제하시겠습니까?`)){
+                        siblings(navBtn).forEach(i => {if(i.classList.contains("now-btn")) i.classList.remove("now-btn")});
                         e.currentTarget.closest('.custom-btn').remove();
+                        console.log(e.currentTarget);
                         editOff();
-                        // 페이지 넘겨주기(My Mew)
+                        // 앨범 삭제하면 페이지 My Mew로 넘겨주기
                         addArea.querySelector('.nav-btn.calender-area.my-nav-title').classList.add("now-btn");
                         calendarArea.classList.add('on');
                     }
@@ -165,6 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
         genreOption.classList.remove('genre-toggle');
         filterGenre.children[0].innerText = e.target.innerText;
         filterGenre.children[0].style.color="#7fe5ff";
+        filterGenre.style.borderColor="#7fe5ff";
     }));
     // 장르 외부 클릭 시 창 닫기
     window.addEventListener('click', e => {
@@ -172,6 +176,114 @@ document.addEventListener('DOMContentLoaded', function() {
             genreOption.classList.remove('genre-toggle');
         }
     });
+
+    // 앨범 포스터 이미지 누르면 확인 및 수정 모달 열기
+    const modifyRecord = document.querySelector('.modify-record-area');
+    const albumPoster = document.querySelectorAll('.album-container img');
+    albumPoster.forEach(item => item.addEventListener('click', e => {
+        modifyRecord.classList.add('record-toggle');
+    }));
+
+    // 영화 기록 확인 및 수정 팝업창 닫기
+    document.querySelector('.modify-btn-close').addEventListener('click', e => {
+        e.stopImmediatePropagation();
+        if(confirm('저장하지 않고 닫으시겠습니까?')){
+            modifyRecord.classList.remove('record-toggle');
+        }else return false;
+    });
+
+    // 영화 기록 확인 및 수정 팝업창 저장
+    document.querySelector('.modify-btn-submit').addEventListener('click', e => {
+        e.stopImmediatePropagation();
+        alert(`수정되었습니다.`);
+        modifyRecord.classList.remove('record-toggle');
+    });
+
+    // 포스터 삭제(기록 삭제)
+    const posterEditBtn = document.querySelector('.poster-edit');
+    const posterEditBox = document.querySelector('.poster-edit-box');
+    const posterCover = document.querySelectorAll('.poster-cover');
+    const posterRemoveBtn = document.querySelector('.poster-remove-btn');
+    const allBtn = document.querySelector('.poster-all-btn');
+    // 포스터 젠체 선택 유무(false, true)
+    let test = document.getElementsByClassName('cover-toggle').length === document.getElementsByClassName('poster-box').length;
+
+    // 포스터 삭제 버튼 스타일 및 초기화
+    posterEditBtn.addEventListener('click', () => {
+        posterEditBtn.classList.toggle('edit-style');
+        posterEditBox.classList.toggle('edit-toggle');
+        posterCover.forEach(item => item.classList.toggle('edit-toggle'));
+        if(posterEditBtn.classList.contains('edit-style')) posterEditBtn.innerText = "삭제 완료";
+        else{
+            posterEditBtn.innerText = "포스터 삭제";
+            posterCover.forEach(item => { // 상태 초기화
+                item.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+                allBtn.innerText = "전체 선택";
+                item.classList.remove('cover-toggle');
+                if(item === posterCover[posterCover.length-1]) test = false;
+            });
+        }
+    });
+
+    // 포스터 삭제 상태가 되면, 삭제할 포스터를 선택후 삭제버튼 누르기
+    // 포스터 선택
+    posterCover.forEach(item => item.addEventListener('click', e => {
+        if(e.target.classList.contains('cover-toggle')){
+            e.target.classList.remove('cover-toggle');
+            e.target.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+            allBtn.innerText = "전체 선택";
+            test = false;
+        }else{
+            e.target.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
+            e.target.classList.add('cover-toggle');
+            if(document.getElementsByClassName('cover-toggle').length === document.getElementsByClassName('poster-box').length){
+                allBtn.innerText = "전체 해제";
+                test = true;
+            }
+        }
+    }));
+
+    //포스터 전체 선택
+    allBtn.addEventListener('click', () => {
+        posterCover.forEach(item => {
+            if(test){
+                item.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+                allBtn.innerText = "전체 선택";
+                item.classList.remove('cover-toggle');
+                if(item === posterCover[posterCover.length-1]) test = false;
+            }else{
+                item.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
+                allBtn.innerText = "전체 해제";
+                item.classList.add('cover-toggle');
+                if(item === posterCover[posterCover.length-1]) test = true;
+            }
+        });
+    });
+
+    // 포스터 삭제하기
+    posterRemoveBtn.addEventListener('click', () => {
+        if(document.getElementsByClassName('cover-toggle').length !== 0){
+            if(confirm('삭제하시겠습니까?')){
+                document.querySelectorAll('.cover-toggle').forEach(item => {
+                    item.closest('.poster-box').remove();
+                });
+            }else return false;
+        }
+    });
+
+    // 포스터 호버
+    posterCover.forEach(item => item.addEventListener('mouseover', e => {
+        if(!(e.target.classList.contains('cover-toggle'))){
+            e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.4)";
+            e.currentTarget.style.transitionDuration = "0.5s";
+        }
+    }));
+    posterCover.forEach(item => item.addEventListener('mouseout', e => {
+        if(!(e.target.classList.contains('cover-toggle'))){
+            e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+            e.currentTarget.style.transitionDuration = "0.5s";
+        }
+    }));
 
     // 탑버튼
     let topBtn = document.querySelector('.top-btn');
