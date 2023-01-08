@@ -18,8 +18,15 @@ a {
 }
 
 body{
-    overflow-x: hidden;
+    overflow-x:hidden;
     background-color: #000000;
+}
+
+/* 화면 작아지면 가로 스크롤 생기게 */
+@media (max-width: 100rem) {
+    body{
+        overflow-x: scroll;
+    }
 }
 
 /* 배경 */
