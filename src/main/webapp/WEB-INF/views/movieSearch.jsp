@@ -39,6 +39,50 @@
                     <button class="pick-btn"><img class="pick" src="/static/images/star1.png"></button>
                 </div>
             </div>
+            <%--  기록 남기기 팝업창  --%>
+            <div class="record-area">
+                <div class="record-box">
+                    <div class="img-box">
+                        <div class="bg-crop">
+                            <img src="/static/images/poster.jpg" class="bg-poster-img">
+                        </div>
+                        <img src="/static/images/poster.jpg" class="poster-img">
+                        <div class="movie-simple-info">
+                            <p>라라랜드</p>
+                            <p>2016</p>
+                        </div>
+                    </div>
+                    <div class="watch-info-box">
+                        <div class="watch-info">
+                            <img src="/static/images/when.png">
+                            <input type="text" placeholder="관람일">
+                        </div>
+                        <div class="watch-info">
+                            <img src="/static/images/where.png">
+                            <input type="text" placeholder="관람 장소">
+                        </div>
+                        <div class="watch-info">
+                            <img src="/static/images/who.png">
+                            <input type="text" placeholder="누구랑">
+                        </div>
+                        <div class="watch-info">
+                            <img src="/static/images/rating.png">
+                            <input type="text" placeholder="평점">
+                        </div>
+                        <div class="watch-info">
+                            <img src="/static/images/folder.png">
+                            <input type="text" placeholder="앨범선택">
+                        </div>
+                    </div>
+                    <div class="review-write-box">
+                        <textarea placeholder="영화 리뷰를 작성해 보세요." spellcheck="false"></textarea>
+                    </div>
+                    <div class="record-btn-box">
+                        <button class="record-btn-cancel">취소</button>
+                        <button class="record-btn-submit">저장</button>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <%--  탑버튼  --%>

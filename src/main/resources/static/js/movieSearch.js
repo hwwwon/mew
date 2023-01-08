@@ -19,4 +19,24 @@ const pickBtn = document.querySelector('.pick-btn');
 const starImg = document.querySelector('.pick-btn img');
 pickBtn.addEventListener('click', () => {
     starImg.classList.toggle('yellow-star');
+    if(starImg.classList.contains('yellow-star')) alert("나중에 볼 영화에 저장되었습니다. 마이페이지에서 확인해 보세요.");
 });
+
+// 기록하기 버튼(팝업창)
+const recordArea = document.querySelector('.record-area');
+// 영화 기록 팝업창 열기
+document.querySelector('.record-btn').addEventListener('click', () => {
+    recordArea.classList.add('record-toggle');
+});
+// 영화 기록 팝업창 취소(닫기)
+document.querySelector('.record-btn-cancel').addEventListener('click', () => {
+    if(confirm('저장하지 않고 취소 하시겠습니까?')){
+        recordArea.classList.remove('record-toggle');
+    }else return false;
+});
+// 영화 기록 팝업창 저장
+document.querySelector('.record-btn-submit').addEventListener('click', () => {
+    recordArea.classList.remove('record-toggle');
+    alert(`기본 앨범에 저장되었습니다. 마이페이지에서 확인해 보세요.`);
+});
+
