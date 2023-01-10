@@ -55,23 +55,23 @@
                     <div class="watch-info-box">
                         <div class="watch-info">
                             <img src="/static/images/when.png">
-                            <input type="text" placeholder="관람일">
+                            <input type="text" placeholder="관람일" id="movieWatchDate" readonly>
                         </div>
                         <div class="watch-info">
                             <img src="/static/images/where.png">
-                            <input type="text" placeholder="관람 장소">
+                            <input type="text" placeholder="관람 장소" readonly>
                         </div>
                         <div class="watch-info">
                             <img src="/static/images/who.png">
-                            <input type="text" placeholder="누구랑">
+                            <input type="text" placeholder="누구랑" readonly>
                         </div>
                         <div class="watch-info">
                             <img src="/static/images/rating.png">
-                            <input type="text" placeholder="평점">
+                            <input type="text" placeholder="평점" readonly>
                         </div>
                         <div class="watch-info">
                             <img src="/static/images/folder.png">
-                            <input type="text" placeholder="앨범선택">
+                            <input type="text" placeholder="앨범선택" readonly>
                         </div>
                     </div>
                     <div class="review-write-box">

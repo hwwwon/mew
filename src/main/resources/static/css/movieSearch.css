@@ -177,7 +177,6 @@ div.movie-simple-info > p{
 .watch-info-box > div.watch-info > img{
     width: 2.2rem;
     height: 2.2rem;
-    cursor: pointer;
     filter: hue-rotate(10deg);
 }
 
@@ -188,6 +187,7 @@ div.movie-simple-info > p{
     border: none;
     background-color: transparent;
     padding: 0.5em;
+    cursor: pointer;
 }
 
 .review-write-box{

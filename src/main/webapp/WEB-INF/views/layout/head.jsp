@@ -3,6 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>뮤(MEW : Movie Review)</title>
+    <%--  jquery  --%>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <!-- bootstrap datetimepicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/ripples.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/material.min.js"></script>
+    <script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap-material-datetimepicker.js"></script>
+    <link rel="stylesheet" href="/static/css/bootstrap-material-datetimepicker.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%--  font  --%>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
