@@ -17,37 +17,18 @@ topBtn.addEventListener('click', (e) => {
 // 찜 버튼
 const pickBtn = document.querySelector('.pick-btn');
 const starImg = document.querySelector('.pick-btn img');
-const recordBtn = document.querySelector('.record-btn');
-const closeBtn = document.querySelector('.record-btn-cancel');
-const inputReset = document.querySelectorAll('.watch-info input');
+
 pickBtn.addEventListener('click', () => {
     starImg.classList.toggle('yellow-star');
     if(starImg.classList.contains('yellow-star')) alert("나중에 볼 영화에 저장되었습니다. 마이페이지에서 확인해 보세요.");
 });
 
 // 기록하기 버튼(팝업창)
+const recordBtn = document.querySelector('.record-btn');
 const recordArea = document.querySelector('.record-area');
 // 영화 기록 팝업창 열기
 recordBtn.addEventListener('click', () => {
     recordArea.classList.add('record-toggle');
-});
-// 영화 기록 팝업창 취소(닫기)
-closeBtn.addEventListener('click', () => {
-    if(recordBtn.textContent === "기록 남기기"){
-        if(confirm('저장하지 않고 취소하시겠습니까?')){
-            recordArea.classList.remove('record-toggle');
-            inputReset.forEach(item => item.value="");
-        }else return false;
-    }
-    recordArea.classList.remove('record-toggle');
-});
-// 영화 기록 팝업창 저장
-document.querySelector('.record-btn-submit').addEventListener('click', () => {
-    recordArea.classList.remove('record-toggle');
-    alert(`기본 앨범에 저장되었습니다. 마이페이지에서 확인해 보세요.`);
-    recordBtn.innerText = "기록 완료";
-    recordBtn.style.color = "#7fe5ff";
-    closeBtn.innerText = "닫기";
 });
 
 // 영화 시청 날짜 및 시간 선택 bootstrap datetimepicker jquery
@@ -67,6 +48,8 @@ const watchDetail = document.querySelectorAll('.watch-detail');
 const detailArea = document.querySelectorAll('.record-detail-area');
 let siblings = t => [...t.parentElement.children].filter(e => e.classList.contains('detail-content') && e !== t);
 let inputAuto = t => [...t.parentElement.children].filter(e => e.classList.contains('self') && e !== t);
+const starBox = document.querySelectorAll('.star-box');
+let starNum = document.querySelector('.star-num');
 // 각 내용에 맞는 팝업창 열기
 watchDetail.forEach(item => item.addEventListener('click', e => {
     const { id } = e.target;
@@ -106,8 +89,6 @@ watchDetail.forEach(item => item.addEventListener('click', e => {
             }));
 
             //평가 별점 채우기
-            const starBox = document.querySelectorAll('.star-box');
-            let starNum = document.querySelector('.star-num');
             detail.querySelectorAll('.star-wrap').forEach(item => item.addEventListener('click', s => {
                 let mouseX = s.offsetX;
 
@@ -219,20 +200,45 @@ watchDetail.forEach(item => item.addEventListener('click', e => {
             });
 
             // 외부 클릭하면 디테일 모달창 닫힘
-            window.addEventListener('click', close => {
+            detail.addEventListener('click', close => {
                 if(!detail.children[0].contains(close.target) && close.target.className !== "watch-detail"){
+                    // 별점 외부영역 클릭
+                    if(detail.classList.contains('watchStar')){
+                        if(starNum.innerText === "0.0") document.getElementById(id).value = "";
+                        else document.getElementById(id).value = starNum.innerText;
+                    }
                     detail.classList.remove('detail-toggle');
-                }
-                // 별점 외부영역 클릭
-                if(detail.classList.contains('watchStar')){
-                    if(starNum.innerText === "0.0") document.getElementById(id).value = "";
-                    else document.getElementById(id).value = starNum.innerText;
                 }
             });
         }
     });
 }));
 
+const closeBtn = document.querySelector('.record-btn-cancel');
+const inputReset = document.querySelectorAll('.watch-info input');
+// 영화 기록 팝업창 취소(닫기)
+closeBtn.addEventListener('click', () => {
+    if(recordBtn.textContent === "기록 남기기"){
+        if(confirm('저장하지 않고 취소하시겠습니까?')){
+            inputReset.forEach(item => item.value="");
+            starNum.innerText = "0.0";
+            for(let i = 0; i < 5; i++){
+                starBox[i].classList.remove('full');
+                starBox[i].classList.remove('half');
+            }
+            recordArea.classList.remove('record-toggle');
+        }else return false;
+    }
+    recordArea.classList.remove('record-toggle');
+});
+// 영화 기록 팝업창 저장
+document.querySelector('.record-btn-submit').addEventListener('click', () => {
+    recordArea.classList.remove('record-toggle');
+    alert(`기본 앨범에 저장되었습니다. 마이페이지에서 확인해 보세요.`);
+    recordBtn.innerText = "기록 완료";
+    recordBtn.style.color = "#7fe5ff";
+    closeBtn.innerText = "닫기";
+});
 
 
 
