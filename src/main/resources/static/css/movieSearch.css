@@ -243,8 +243,147 @@ div.movie-simple-info > p{
     transition-duration: 0.3s;
 }
 
-.record-toggle{
+/* 관람장소, 누구랑, 평점, 앨범선택 팝업창 */
+.record-detail-area{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    z-index: 120;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+}
+
+.record-detail-box{
     display: flex;
+    flex-direction: column;
+    width: 20rem;
+    background-color: #212121;
+    border-radius: 10px;
+    padding: 2em 1.5em;
+}
+
+.detail-title{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1em;
+    padding-left: 0.5em;
+    color: #7fe5ff;
+}
+
+.detail-content{
+    margin: 0.5em 0;
+    width: 16rem;
+    height: fit-content;
+    line-height: 2rem;
+    padding-left: 1em;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.detail-content:hover{
+    transition-duration: 0.5s;
+    color: #7fe5ff;
+}
+
+.self-input-box{
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 14rem;
+    height: fit-content;
+}
+
+.self-input{
+    outline: none;
+    width: 14rem;
+    height: 2.3rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #404040;
+    padding: 0 0.5em;
+}
+
+.self-done{
+    border: none;
+    background-color: transparent;
+    margin: 0.7em 0.3em 0 0;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.star-container{
+    display: flex;
+    justify-content: space-evenly;
+    height: 2rem;
+}
+
+.star-wrap{
+    display: inline-block;
+    position: relative;
+    width: 1.6rem;
+    font-size: 1.5rem;
+    margin-left: 0.5em;
+    color: #404040;
+    cursor: pointer;
+}
+
+.star-box{
+    position: absolute;
+    bottom: 0.5rem;
+    width: 0;
+    overflow: hidden;
+}
+
+.review-star{
+    color: #7fe5ff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.half{
+    width: 50%;
+}
+
+.full{
+    width: 100%;
+}
+
+.star-num{
+    margin-left: 1em;
+    line-height: 1.8rem;
+}
+
+.star-button-box{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1em;
+}
+
+.star-button-box > button{
+    background-color: transparent;
+    border: none;
+    margin-left: 1em;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.star-button-box > button:hover{
+    color: #7fe5ff;
+    transition-duration: 0.5s;
+}
+
+/* 팝업창 토글 */
+.record-toggle, .detail-toggle, .input-toggle{
+    display: flex;
+}
+
+/* 현재 선택된 내용 표시 토글 */
+.choice-content{
+    color: #7fe5ff;
 }
 
 /* 탑버튼 */
