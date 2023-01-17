@@ -14,9 +14,9 @@
    - 마이페이지 앨범 추가를 통해 원하는 카테고리 만들기
    - 마이페이지 첫 화면에 Fullcalendar로 기록 날짜에 해당하는 영화 포스터 보여주는 기능
 3. 프로젝트 수행
-   - 도구 : IntelliJ, Spring Boot(JDK11, Gradle, war)
+   - 도구 : IntelliJ, Spring Boot(JDK11, Gradle, war), Spring Data JPA
    - 개발언어 : Java, HTML, CSS, JavaScript
-   - API : JPA, YTS(영화 API)
+   - API : YTS(영화 API)
    - CDN : Fullcalendar, Bootstrap DateTimepicker
    - DB : MySQL
    - Server : Tomcat9
